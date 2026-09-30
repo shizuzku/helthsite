@@ -1,0 +1,1115 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>健康タイプ診断</title>
+
+    <style>
+
+        body{
+            background-color: #eeeeee;
+            font-family: sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* 白いカード */
+
+        .card{
+            background-color: white;
+            width: 900px;
+
+            padding: 80px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+            text-align: center;
+        }
+
+        h1{
+            margin-bottom: 50px;
+        }
+
+        .question{
+            margin-top: 40px;
+            margin-bottom: 20px;
+
+            font-size: 20px;
+        }
+
+        /* ボタン横並び */
+
+        .buttons{
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 30px;
+        }
+
+        /* 左右の文字 */
+
+        .side-text{
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* radioボタン消す */
+
+        input[type="radio"]{
+            display: none;
+        }
+
+        /* 丸 */
+
+        .circle{
+            border-radius: 50%;
+
+            background-color: white;
+
+            cursor: pointer;
+
+            box-sizing: border-box;
+
+            display: block;
+        }
+
+        /* 水色 */
+
+        .blue{
+            border: 2px solid #8ed8f8;
+        }
+
+        /* グレー */
+
+        .gray{
+            border: 2px solid #d9d9d9;
+        }
+
+        /* ピンク */
+
+        .pink{
+            border: 2px solid #e8a8b8;
+        }
+
+        /* 選択された時 */
+
+        input[type="radio"]:checked + label.blue{
+            background-color: #8ed8f8;
+        }
+
+        input[type="radio"]:checked + label.gray{
+            background-color: #d9d9d9;
+        }
+
+        input[type="radio"]:checked + label.pink{
+            background-color: #e8a8b8;
+        }
+
+        /* サイズ */
+
+        .size1{
+            width: 60px;
+            height: 60px;
+        }
+
+        .size2{
+            width: 50px;
+            height: 50px;
+        }
+
+        .size3{
+            width: 40px;
+            height: 40px;
+        }
+
+        .size4{
+            width: 30px;
+            height: 30px;
+        }
+
+        /* 次へボタン */
+
+        .next-button{
+            margin-top: 40px;
+
+            padding: 14px 40px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background-color: #9fc6e7;
+
+            color: white;
+
+            font-size: 18px;
+
+            cursor: pointer;
+        }
+
+        .intro{
+    background: #f8f8f8;
+    padding: 25px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+
+    line-height: 1.9;
+    font-size: 18px;
+    text-align: left;
+}
+    </style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🌿 健康タイプ診断</h1>
+
+<div class="intro">
+<p>
+この診断では、<strong>あなたが健康行動を始めるきっかけ（動機）</strong>をもとに、健康タイプを診断します。
+</p>
+
+<p>
+24個の質問に答えることで、あなたに当てはまるタイプや、おすすめの健康行動を知ることができます。
+</p>
+
+
+</div>
+
+        <!-- Q1 -->
+
+        <div class="question">
+             Q1.見た目を良くしたいと思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q1" id="q1-1" value="1">
+            <label class="circle blue size1" for="q1-1"></label>
+
+            <input type="radio" name="q1" id="q1-2" value="2">
+            <label class="circle blue size2" for="q1-2"></label>
+
+            <input type="radio" name="q1" id="q1-3" value="3">
+            <label class="circle blue size3" for="q1-3"></label>
+
+            <input type="radio" name="q1" id="q1-4" value="4">
+            <label class="circle gray size4" for="q1-4"></label>
+
+            <input type="radio" name="q1" id="q1-5" value="5">
+            <label class="circle pink size3" for="q1-5"></label>
+
+            <input type="radio" name="q1" id="q1-6" value="6">
+            <label class="circle pink size2" for="q1-6"></label>
+
+            <input type="radio" name="q1" id="q1-7" value="7">
+            <label class="circle pink size1" for="q1-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div>
+
+        <!-- Q2 -->
+
+        <div class="question">
+           Q2. SNSで見る健康的な生活に憧れる
+        </div>
+        
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q2" id="q2-1" value="1">
+            <label class="circle blue size1" for="q2-1"></label>
+
+            <input type="radio" name="q2" id="q2-2" value="2">
+            <label class="circle blue size2" for="q2-2"></label>
+
+            <input type="radio" name="q2" id="q2-3" value="3">
+            <label class="circle blue size3" for="q2-3"></label>
+
+            <input type="radio" name="q2" id="q2-4" value="4">
+            <label class="circle gray size4" for="q2-4"></label>
+
+            <input type="radio" name="q2" id="q2-5" value="5">
+            <label class="circle pink size3" for="q2-5"></label>
+
+            <input type="radio" name="q2" id="q2-6" value="6">
+            <label class="circle pink size2" for="q2-6"></label>
+
+            <input type="radio" name="q2" id="q2-7" value="7">
+            <label class="circle pink size1" for="q2-7"></label>
+
+            <span class="side-text">そう思う</span>
+       
+          </div>
+        
+        <!-- Q3 -->
+
+        <div class="question">
+             Q3.ストレスを減らしたいと思う
+
+              <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q3" id="q3-1" value="1">
+            <label class="circle blue size1" for="q3-1"></label>
+
+            <input type="radio" name="q3" id="q3-2" value="2">
+            <label class="circle blue size2" for="q3-2"></label>
+
+            <input type="radio" name="q3" id="q3-3" value="3">
+            <label class="circle blue size3" for="q3-3"></label>
+
+            <input type="radio" name="q3" id="q3-4" value="4">
+            <label class="circle gray size4" for="q3-4"></label>
+
+            <input type="radio" name="q3" id="q3-5" value="5">
+            <label class="circle pink size3" for="q3-5"></label>
+
+            <input type="radio" name="q3" id="q3-6" value="6">
+            <label class="circle pink size2" for="q3-6"></label>
+
+            <input type="radio" name="q3" id="q3-7" value="7">
+            <label class="circle pink size1" for="q3-7"></label>
+
+            <span class="side-text">そう思う</span>
+        
+          </div>
+
+          <!-- Q4 -->
+
+        <div class="question">
+             Q4.将来の健康に不安を感じることがある
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q4" id="q4-1" value="1">
+            <label class="circle blue size1" for="q4-1"></label>
+
+            <input type="radio" name="q4" id="q4-2" value="2">
+            <label class="circle blue size2" for="q4-2"></label>
+
+            <input type="radio" name="q4" id="q4-3" value="3">
+            <label class="circle blue size3" for="q4-3"></label>
+
+            <input type="radio" name="q4" id="q4-4" value="4">
+            <label class="circle gray size4" for="q4-4"></label>
+
+            <input type="radio" name="q4" id="q4-5" value="5">
+            <label class="circle pink size3" for="q4-5"></label>
+
+            <input type="radio" name="q4" id="q4-6" value="6">
+            <label class="circle pink size2" for="q4-6"></label>
+
+            <input type="radio" name="q4" id="q4-7" value="7">
+            <label class="circle pink size1" for="q4-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div>
+
+        <!-- Q5 -->
+
+        <div class="question">
+             Q5.スタイルを改善したいと思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q5" id="q5-1" value="1">
+            <label class="circle blue size1" for="q5-1"></label>
+
+            <input type="radio" name="q5" id="q5-2" value="2">
+            <label class="circle blue size2" for="q5-2"></label>
+
+            <input type="radio" name="q5" id="q5-3" value="3">
+            <label class="circle blue size3" for="q5-3"></label>
+
+            <input type="radio" name="q5" id="q5-4" value="4">
+            <label class="circle gray size4" for="q5-4"></label>
+
+            <input type="radio" name="q5" id="q5-5" value="5">
+            <label class="circle pink size3" for="q5-5"></label>
+
+            <input type="radio" name="q5" id="q5-6" value="6">
+            <label class="circle pink size2" for="q5-6"></label>
+
+            <input type="radio" name="q5" id="q5-7" value="7">
+            <label class="circle pink size1" for="q5-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div>
+
+         <!-- Q6 -->
+
+        <div class="question">
+             Q6.SNSで見た運動や食事を試したくなることがある
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q6" id="q6-1" value="1">
+            <label class="circle blue size1" for="q6-1"></label>
+
+            <input type="radio" name="q6" id="q6-2" value="2">
+            <label class="circle blue size2" for="q6-2"></label>
+
+            <input type="radio" name="q6" id="q6-3" value="3">
+            <label class="circle blue size3" for="q6-3"></label>
+
+            <input type="radio" name="q6" id="q6-4" value="4">
+            <label class="circle gray size4" for="q6-4"></label>
+
+            <input type="radio" name="q6" id="q6-5" value="5">
+            <label class="circle pink size3" for="q6-5"></label>
+
+            <input type="radio" name="q6" id="q6-6" value="6">
+            <label class="circle pink size2" for="q6-6"></label>
+
+            <input type="radio" name="q6" id="q6-7" value="7">
+            <label class="circle pink size1" for="q6-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div>
+        
+       <!-- Q7 -->
+
+        <div class="question">
+             Q7.生活習慣を整えたいと思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q7" id="q7-1" value="1">
+            <label class="circle blue size1" for="q7-1"></label>
+
+            <input type="radio" name="q7" id="q7-2" value="2">
+            <label class="circle blue size2" for="q7-2"></label>
+
+            <input type="radio" name="q7" id="q7-3" value="3">
+            <label class="circle blue size3" for="q7-3"></label>
+
+            <input type="radio" name="q7" id="q7-4" value="4">
+            <label class="circle gray size4" for="q7-4"></label>
+
+            <input type="radio" name="q7" id="q7-5" value="5">
+            <label class="circle pink size3" for="q7-5"></label>
+
+            <input type="radio" name="q7" id="q7-6" value="6">
+            <label class="circle pink size2" for="q7-6"></label>
+
+            <input type="radio" name="q7" id="q7-7" value="7">
+            <label class="circle pink size1" for="q7-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div>  
+
+        
+    <!-- Q8 -->
+
+        <div class="question">
+             Q8.運動不足を感じることがある
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q8" id="q8-1" value="1">
+            <label class="circle blue size1" for="q8-1"></label>
+
+            <input type="radio" name="q8" id="q8-2" value="2">
+            <label class="circle blue size2" for="q8-2"></label>
+
+            <input type="radio" name="q8" id="q8-3" value="3">
+            <label class="circle blue size3" for="q8-3"></label>
+
+            <input type="radio" name="q8" id="q8-4" value="4">
+            <label class="circle gray size4" for="q8-4"></label>
+
+            <input type="radio" name="q8" id="q8-5" value="5">
+            <label class="circle pink size3" for="q8-5"></label>
+
+            <input type="radio" name="q8" id="q8-6" value="6">
+            <label class="circle pink size2" for="q8-6"></label>
+
+            <input type="radio" name="q8" id="q8-7" value="7">
+            <label class="circle pink size1" for="q8-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+
+         <!-- Q9 -->
+
+        <div class="question">
+             Q9.「垢抜けたい」と思うことがある
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q9" id="q9-1" value="1">
+            <label class="circle blue size1" for="q9-1"></label>
+
+            <input type="radio" name="q9" id="q9-2" value="2">
+            <label class="circle blue size2" for="q9-2"></label>
+
+            <input type="radio" name="q9" id="q9-3" value="3">
+            <label class="circle blue size3" for="q9-3"></label>
+
+            <input type="radio" name="q9" id="q9-4" value="4">
+            <label class="circle gray size4" for="q9-4"></label>
+
+            <input type="radio" name="q9" id="q9-5" value="5">
+            <label class="circle pink size3" for="q9-5"></label>
+
+            <input type="radio" name="q9" id="q9-6" value="6">
+            <label class="circle pink size2" for="q9-6"></label>
+
+            <input type="radio" name="q9" id="q9-7" value="7">
+            <label class="circle pink size1" for="q9-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+    
+         <!-- Q10 -->
+
+        <div class="question">
+             Q10.健康的な生活は「おしゃれ」だと思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q10" id="q10-1" value="1">
+            <label class="circle blue size1" for="q10-1"></label>
+
+            <input type="radio" name="q10" id="q10-2" value="2">
+            <label class="circle blue size2" for="q10-2"></label>
+
+            <input type="radio" name="q10" id="q10-3" value="3">
+            <label class="circle blue size3" for="q10-3"></label>
+
+            <input type="radio" name="q10" id="q10-4" value="4">
+            <label class="circle gray size4" for="q10-4"></label>
+
+            <input type="radio" name="q10" id="q10-5" value="5">
+            <label class="circle pink size3" for="q10-5"></label>
+
+            <input type="radio" name="q10" id="q10-6" value="6">
+            <label class="circle pink size2" for="q10-6"></label>
+
+            <input type="radio" name="q10" id="q10-7" value="7">
+            <label class="circle pink size1" for="q10-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+
+        <!-- Q11 -->
+
+        <div class="question">
+             Q11.心に余裕を持ちたいと思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q11" id="q11-1" value="1">
+            <label class="circle blue size1" for="q11-1"></label>
+
+            <input type="radio" name="q11" id="q11-2" value="2">
+            <label class="circle blue size2" for="q11-2"></label>
+
+            <input type="radio" name="q11" id="q11-3" value="3">
+            <label class="circle blue size3" for="q11-3"></label>
+
+            <input type="radio" name="q11" id="q11-4" value="4">
+            <label class="circle gray size4" for="q11-4"></label>
+
+            <input type="radio" name="q11" id="q11-5" value="5">
+            <label class="circle pink size3" for="q11-5"></label>
+
+            <input type="radio" name="q11" id="q11-6" value="6">
+            <label class="circle pink size2" for="q11-6"></label>
+
+            <input type="radio" name="q11" id="q11-7" value="7">
+            <label class="circle pink size1" for="q11-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+
+        <!-- Q12 -->
+
+        <div class="question">
+             Q12.体力をつけたいと思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q12" id="q12-1" value="1">
+            <label class="circle blue size1" for="q12-1"></label>
+
+            <input type="radio" name="q12" id="q12-2" value="2">
+            <label class="circle blue size2" for="q12-2"></label>
+
+            <input type="radio" name="q12" id="q12-3" value="3">
+            <label class="circle blue size3" for="q12-3"></label>
+
+            <input type="radio" name="q12" id="q12-4" value="4">
+            <label class="circle gray size4" for="q12-4"></label>
+
+            <input type="radio" name="q12" id="q12-5" value="5">
+            <label class="circle pink size3" for="q12-5"></label>
+
+            <input type="radio" name="q12" id="q12-6" value="6">
+            <label class="circle pink size2" for="q12-6"></label>
+
+            <input type="radio" name="q12" id="q12-7" value="7">
+            <label class="circle pink size1" for="q12-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+
+        <!-- Q13 -->
+
+        <div class="question">
+             Q13.自分磨きとして運動や食事改善をしたいと思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q13" id="q13-1" value="1">
+            <label class="circle blue size1" for="q13-1"></label>
+
+            <input type="radio" name="q13" id="q13-2" value="2">
+            <label class="circle blue size2" for="q13-2"></label>
+
+            <input type="radio" name="q13" id="q13-3" value="3">
+            <label class="circle blue size3" for="q13-3"></label>
+
+            <input type="radio" name="q13" id="q13-4" value="4">
+            <label class="circle gray size4" for="q13-4"></label>
+
+            <input type="radio" name="q13" id="q13-5" value="5">
+            <label class="circle pink size3" for="q13-5"></label>
+
+            <input type="radio" name="q13" id="q13-6" value="6">
+            <label class="circle pink size2" for="q13-6"></label>
+
+            <input type="radio" name="q13" id="q13-7" value="7">
+            <label class="circle pink size1" for="q13-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+
+        <!-- Q14 -->
+
+        <div class="question">
+             Q14.SNSやメディアで見る理想の体型に影響を受けて、運動したいと思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q14" id="q14-1" value="1">
+            <label class="circle blue size1" for="q14-1"></label>
+
+            <input type="radio" name="q14" id="q14-2" value="2">
+            <label class="circle blue size2" for="q14-2"></label>
+
+            <input type="radio" name="q14" id="q14-3" value="3">
+            <label class="circle blue size3" for="q14-3"></label>
+
+            <input type="radio" name="q14" id="q14-4" value="4">
+            <label class="circle gray size4" for="q14-4"></label>
+
+            <input type="radio" name="q14" id="q14-5" value="5">
+            <label class="circle pink size3" for="q14-5"></label>
+
+            <input type="radio" name="q14" id="q14-6" value="6">
+            <label class="circle pink size2" for="q14-6"></label>
+
+            <input type="radio" name="q14" id="q14-7" value="7">
+            <label class="circle pink size1" for="q14-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+
+        <!-- Q15 -->
+
+        <div class="question">
+             Q15.運動や生活習慣を整えることで気分が前向きになると思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q15" id="q15-1" value="1">
+            <label class="circle blue size1" for="q15-1"></label>
+
+            <input type="radio" name="q15" id="q15-2" value="2">
+            <label class="circle blue size2" for="q15-2"></label>
+
+            <input type="radio" name="q15" id="q15-3" value="3">
+            <label class="circle blue size3" for="q15-3"></label>
+
+            <input type="radio" name="q15" id="q15-4" value="4">
+            <label class="circle gray size4" for="q15-4"></label>
+
+            <input type="radio" name="q15" id="q15-5" value="5">
+            <label class="circle pink size3" for="q15-5"></label>
+
+            <input type="radio" name="q15" id="q15-6" value="6">
+            <label class="circle pink size2" for="q15-6"></label>
+
+            <input type="radio" name="q15" id="q15-7" value="7">
+            <label class="circle pink size1" for="q15-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+
+        <!-- Q16 -->
+
+        <div class="question">
+             Q16.病気を予防したいと思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q16" id="q16-1" value="1">
+            <label class="circle blue size1" for="q16-1"></label>
+
+            <input type="radio" name="q16" id="q16-2" value="2">
+            <label class="circle blue size2" for="q16-2"></label>
+
+            <input type="radio" name="q16" id="q16-3" value="3">
+            <label class="circle blue size3" for="q16-3"></label>
+
+            <input type="radio" name="q16" id="q16-4" value="4">
+            <label class="circle gray size4" for="q16-4"></label>
+
+            <input type="radio" name="q16" id="q16-5" value="5">
+            <label class="circle pink size3" for="q16-5"></label>
+
+            <input type="radio" name="q16" id="q16-6" value="6">
+            <label class="circle pink size2" for="q16-6"></label>
+
+            <input type="radio" name="q16" id="q16-7" value="7">
+            <label class="circle pink size1" for="q16-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+
+        <!-- Q17 -->
+
+        <div class="question">
+             Q17.健康的な自分に自信を持ちたいと思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q17" id="q17-1" value="1">
+            <label class="circle blue size1" for="q17-1"></label>
+
+            <input type="radio" name="q17" id="q17-2" value="2">
+            <label class="circle blue size2" for="q17-2"></label>
+
+            <input type="radio" name="q17" id="q17-3" value="3">
+            <label class="circle blue size3" for="q17-3"></label>
+
+            <input type="radio" name="q17" id="q17-4" value="4">
+            <label class="circle gray size4" for="q17-4"></label>
+
+            <input type="radio" name="q17" id="q17-5" value="5">
+            <label class="circle pink size3" for="q17-5"></label>
+
+            <input type="radio" name="q17" id="q17-6" value="6">
+            <label class="circle pink size2" for="q17-6"></label>
+
+            <input type="radio" name="q17" id="q17-7" value="7">
+            <label class="circle pink size1" for="q17-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+
+        <!-- Q18 -->
+
+        <div class="question">
+             Q18.健康的なライフスタイルに理想を感じる
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q18" id="q18-1" value="1">
+            <label class="circle blue size1" for="q18-1"></label>
+
+            <input type="radio" name="q18" id="q18-2" value="2">
+            <label class="circle blue size2" for="q18-2"></label>
+
+            <input type="radio" name="q18" id="q18-3" value="3">
+            <label class="circle blue size3" for="q18-3"></label>
+
+            <input type="radio" name="q18" id="q18-4" value="4">
+            <label class="circle gray size4" for="q18-4"></label>
+
+            <input type="radio" name="q18" id="q18-5" value="5">
+            <label class="circle pink size3" for="q18-5"></label>
+
+            <input type="radio" name="q18" id="q18-6" value="7">
+            <label class="circle pink size2" for="q18-6"></label>
+
+            <input type="radio" name="q18" id="q18-7" value="7">
+            <label class="circle pink size1" for="q18-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+
+        <!-- Q19 -->
+
+        <div class="question">
+             Q19.睡眠や食生活を改善したいと思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q19" id="q19-1" value="1">
+            <label class="circle blue size1" for="q19-1"></label>
+
+            <input type="radio" name="q19" id="q19-2" value="2">
+            <label class="circle blue size2" for="q19-2"></label>
+
+            <input type="radio" name="q19" id="q19-3" value="3">
+            <label class="circle blue size3" for="q19-3"></label>
+
+            <input type="radio" name="q19" id="q19-4" value="4">
+            <label class="circle gray size4" for="q19-4"></label>
+
+            <input type="radio" name="q19" id="q19-5" value="5">
+            <label class="circle pink size3" for="q19-5"></label>
+
+            <input type="radio" name="q19" id="q19-6" value="6">
+            <label class="circle pink size2" for="q19-6"></label>
+
+            <input type="radio" name="q19" id="q19-7" value="7">
+            <label class="circle pink size1" for="q19-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+
+        <!-- Q20 -->
+
+        <div class="question">
+             Q20.健康は生活において重要だと思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q20" id="q20-1" value="1">
+            <label class="circle blue size1" for="q20-1"></label>
+
+            <input type="radio" name="q20" id="q20-2" value="2">
+            <label class="circle blue size2" for="q20-2"></label>
+
+            <input type="radio" name="q20" id="q20-3" value="3">
+            <label class="circle blue size3" for="q20-3"></label>
+
+            <input type="radio" name="q20" id="q20-4" value="4">
+            <label class="circle gray size4" for="q20-4"></label>
+
+            <input type="radio" name="q20" id="q10-5" value="5">
+            <label class="circle pink size3" for="q20-5"></label>
+
+            <input type="radio" name="q20" id="q20-6" value="6">
+            <label class="circle pink size2" for="q20-6"></label>
+
+            <input type="radio" name="q20" id="q20-7" value="7">
+            <label class="circle pink size1" for="q20-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+
+        <!-- Q21 -->
+
+        <div class="question">
+             Q21.健康になることで自分をもっと好きになれると思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q21" id="q21-1" value="1">
+            <label class="circle blue size1" for="q21-1"></label>
+
+            <input type="radio" name="q21" id="q21-2" value="2">
+            <label class="circle blue size2" for="q21-2"></label>
+
+            <input type="radio" name="q21" id="q21-3" value="3">
+            <label class="circle blue size3" for="q21-3"></label>
+
+            <input type="radio" name="q21" id="q21-4" value="4">
+            <label class="circle gray size4" for="q21-4"></label>
+
+            <input type="radio" name="q21" id="q21-5" value="5">
+            <label class="circle pink size3" for="q21-5"></label>
+
+            <input type="radio" name="q21" id="q21-6" value="6">
+            <label class="circle pink size2" for="q21-6"></label>
+
+            <input type="radio" name="q21" id="q21-7" value="7">
+            <label class="circle pink size1" for="q21-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+
+        <!-- Q22 -->
+
+        <div class="question">
+             Q22.健康的な生活を送る人に憧れを感じる
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q22" id="q22-1" value="1">
+            <label class="circle blue size1" for="q22-1"></label>
+
+            <input type="radio" name="q22" id="q22-2" value="2">
+            <label class="circle blue size2" for="q22-2"></label>
+
+            <input type="radio" name="q22" id="q22-3" value="3">
+            <label class="circle blue size3" for="q22-3"></label>
+
+            <input type="radio" name="q22" id="q22-4" value="4">
+            <label class="circle gray size4" for="q22-4"></label>
+
+            <input type="radio" name="q22" id="q22-5" value="5">
+            <label class="circle pink size3" for="q22-5"></label>
+
+            <input type="radio" name="q22" id="q22-6" value="6">
+            <label class="circle pink size2" for="q22-6"></label>
+
+            <input type="radio" name="q22" id="q22-7" value="7">
+            <label class="circle pink size1" for="q22-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+
+        <!-- Q23 -->
+
+        <div class="question">
+             Q23.健康的な生活は気持ちを安定させると思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q23" id="q23-1" value="1">
+            <label class="circle blue size1" for="q23-1"></label>
+
+            <input type="radio" name="q23" id="q23-2" value="2">
+            <label class="circle blue size2" for="q23-2"></label>
+
+            <input type="radio" name="q23" id="q23-3" value="3">
+            <label class="circle blue size3" for="q23-3"></label>
+
+            <input type="radio" name="q23" id="q23-4" value="4">
+            <label class="circle gray size4" for="q23-4"></label>
+
+            <input type="radio" name="q23" id="q23-5" value="5">
+            <label class="circle pink size3" for="q23-5"></label>
+
+            <input type="radio" name="q23" id="q23-6" value="6">
+            <label class="circle pink size2" for="q23-6"></label>
+
+            <input type="radio" name="q23" id="q23-7" value="7">
+            <label class="circle pink size1" for="q23-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+
+        <!-- Q24 -->
+
+        <div class="question">
+             Q24年齢を重ねても元気に過ごしたいと思う
+        </div>
+
+        <div class="buttons">
+
+            <span class="side-text">そう思わない</span>
+
+            <input type="radio" name="q24" id="q24-1" value="1">
+            <label class="circle blue size1" for="q24-1"></label>
+
+            <input type="radio" name="q24" id="q24-2" value="2">
+            <label class="circle blue size2" for="q24-2"></label>
+
+            <input type="radio" name="q24" id="q24-3" value="3">
+            <label class="circle blue size3" for="q24-3"></label>
+
+            <input type="radio" name="q24" id="q24-4" value="4">
+            <label class="circle gray size4" for="q24-4"></label>
+
+            <input type="radio" name="q24" id="q24-5" value="5">
+            <label class="circle pink size3" for="q24-5"></label>
+
+            <input type="radio" name="q24" id="q24-6" value="6">
+            <label class="circle pink size2" for="q24-6"></label>
+
+            <input type="radio" name="q24" id="q24-7" value="7">
+            <label class="circle pink size1" for="q24-7"></label>
+
+            <span class="side-text">そう思う</span>
+
+        </div> 
+        
+        <button onclick="showResult()">
+        診断結果を見る
+        </button>
+
+        <div id="result"></div>
+
+        <script>
+        
+        function getScore(question){
+        
+        const selected =
+        document.querySelector(
+         `input[name="${question}"]:checked`   
+         );
+        
+        return selected ?
+        Number(selected.value) : 0;
+
+        }
+        
+        function showResult(){
+       
+        let beauty =
+        getScore("q1") +
+        getScore("q5") +
+        getScore("q9") +
+        getScore("q13") +
+        getScore("q17") +
+        getScore("q21");
+
+        let lifestyle =
+        getScore("q2") +
+        getScore("q6") +
+        getScore("q10") +
+        getScore("q14") +
+        getScore("q18") +
+        getScore("q22");
+
+        let mental =
+        getScore("q3") +
+        getScore("q7") +
+        getScore("q11") +
+        getScore("q15") +
+        getScore("q19") +
+        getScore("q23");
+
+        let health =
+        getScore("q4") +
+        getScore("q8") +
+        getScore("q12") +
+        getScore("q16") +
+        getScore("q20") +
+        getScore("q24");
+
+       let max = Math.max(beauty, lifestyle, mental, health);
+
+let resultList = [];
+
+if (beauty === max) resultList.push("理想ボディ型");
+if (lifestyle === max) resultList.push("憧れ・ライフスタイル型");
+if (mental === max) resultList.push("メンタル安定型");
+if (health === max) resultList.push("健康維持型");
+
+let resultText = resultList.join("|");
+
+
+        window.location.href =
+        `result.html?type=${encodeURIComponent(resultText)}
+        &beauty=${beauty}
+        &lifestyle=${lifestyle}
+        &mental=${mental}
+        &health=${health}`;
+       
+        }
+        </script>   
+
+</body>
+
+</html>
+ 
+  
