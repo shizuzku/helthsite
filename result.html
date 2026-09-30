@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>診断結果</title>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-top: 10px;
+    }
+
+    #box {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+
+
+  .bar-title {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.bar-bg {
+  width: 100%;
+  height: 20px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.beauty {
+  background: #ff8ab3;
+}
+
+.lifestyle {
+  background: #7fd3ff;
+}
+
+.mental {
+  background: #9be28c;
+}
+
+.health {
+  background: #ffbe6b;
+}
+
+.description {
+  white-space: pre-line;
+  line-height: 1.8;
+}
+
+.advice{
+    background:#e8fdff;
+    padding:12px 18px;
+    margin:8px 0 15px 0;
+    border-radius:10px;
+}
+
+#type{
+    display:inline-block;
+    font-size:42px;
+    font-weight:bold;
+    padding:15px 40px;
+    border:3px solid #333;
+    border-radius:20px;
+    margin-top:10px;
+    margin-bottom:25px;
+    background:white;
+}
+
+.section-title{
+    font-size:30px;
+    font-weight:bold;
+}
+
+.section-header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin:40px 0 20px;
+}
+
+.section-header span{
+    font-size:28px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.section-header::after{
+    content:"";
+    flex:1;
+    height:2px;
+    background:#cfcfcf;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+  <h2>診断結果</h2>
+
+  <p>あなたは</p>
+  <h3 id="type"></h3>
+
+  <div id="box">
+    <div id="scores"></div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const type = params.get("type").trim();
+    const beauty = params.get("beauty");
+    const lifestyle = params.get("lifestyle");
+    const mental = params.get("mental");
+    const health = params.get("health");
+
+    document.getElementById("type").innerHTML =
+type.split("|").join("<br>");
+
+ let description = "";
+let recommend = "";
+let typeCount = type.split("|").length;
+
+let multiMessage = "";
+
+if(typeCount == 2){
+
+multiMessage = `
+<div style="background:#f8f8f8; padding:15px; border-radius:10px; margin-bottom:20px;">
+<b>🌟 あなたは2つのタイプの特徴を持っています！</b><br><br>
+
+今回の診断では2つのタイプが同点となりました。<br>
+健康行動のきっかけは一つではなく、複数の要因が関係しているようです。<br><br>
+
+どちらの特徴もあなたらしさを表しています。2つのタイプの説明を参考に、自分に合った健康行動を見つけてみましょう。
+</div>
+`;
+
+}
+
+else if(typeCount >= 3){
+
+multiMessage = `
+<div style="background:#f8f8f8; padding:15px; border-radius:10px; margin-bottom:20px;">
+<b>🌟 あなたは複数のタイプの特徴を持っています！</b><br><br>
+
+今回の診断では3つ以上のタイプが同点となりました。<br>
+健康行動のきっかけは一つではなく、複数の要因が関係しているようです。<br><br>
+
+以下のタイプの特徴を参考に、自分に合った健康行動を見つけてみましょう。
+</div>
+`;
+
+}
+
+if(type.includes("理想ボディ型")){
+
+description += `
+<div class="section-header">
+    <span>💗 理想ボディ型　特徴</span>
+</div>
+あなたは、理想の体型や見た目に近づきたいという思いが健康行動の原動力になるタイプです。痩せたい、姿勢を良くしたい、筋肉をつけたいなど、「なりたい自分」を目標にすることで、運動や食生活の改善に取り組む傾向があります。
+
+目標がはっきりしているほど行動に移しやすく、身体の変化を実感できるとモチベーションが高まりやすいのが特徴です。そのため、鏡で見た目の変化を確認したり、体重や体型の変化を記録したりすることが継続する力につながります。
+
+一方で、結果を急ぎすぎると焦りや挫折につながることもあります。理想に近づくためには、無理なダイエットや過度な運動だけでなく、自分のペースで健康的に続けることが大切です。小さな変化を積み重ねながら、理想の自分を目指していきましょう。
+
+<div class="section-header">
+    <span>💡 アドバイス</span>
+</div>
+運動の成果を実感するために、体重だけでなく、写真や鏡で姿勢・体型の変化を記録してみましょう。日々の小さな変化にも気づきやすくなり、健康行動を続けるモチベーションにつながります。また、記録を振り返ることで、自分の努力や成長を実感しやすくなります。
+`;
+
+
+
+
+
+}
+
+ if(type.includes("憧れ・ライフスタイル型")){
+
+description += `
+<div class="section-header">
+    <span>💙 憧れ・ライフスタイル型　特徴</span>
+</div>
+あなたは、健康的な人やライフスタイルに憧れを抱き、そのような自分になりたいという思いが健康行動につながるタイプです。SNSやインフルエンサー、芸能人などの影響を受けることも多く、「健康的な生活を送ること」そのものに魅力を感じています。
+
+運動を習慣にしている自分や、健康に気を遣って生活している自分に価値を感じやすく、健康行動をライフスタイルの一部として楽しめるのが特徴です。新しい運動や健康習慣にも興味を持ちやすく、「やってみたい」という気持ちが行動のきっかけになります。
+
+一方で、SNSなどで他人と比べすぎると、自分に自信をなくしてしまうこともあります。憧れをモチベーションにしながらも、自分のペースで楽しみ、自分らしい健康的なライフスタイルを見つけていきましょう。
+
+<div class="section-header">
+    <span>💡 アドバイス</span>
+</div>
+SNSで話題になっている運動や健康習慣に挑戦してみるのもおすすめです。ランニングやピラティスなど、興味を持ったものから始めてみましょう。また、運動の記録や達成したことをSNSに投稿することで、楽しみながら健康行動を続けるきっかけになることもあります。
+
+`;
+
+
+ }
+
+ if(type.includes("メンタル安定型")){
+
+description += `
+<div class="section-header">
+    <span>💚メンタル安定型　特徴</span>
+</div>
+あなたは、心や生活を整えることを目的として健康行動を行うタイプです。ストレスを軽減したい、気持ちを前向きにしたい、生活リズムを整えたいという思いから運動や生活改善に取り組む傾向があります。
+
+健康行動を通して心身のリフレッシュを求めており、無理なく自分のペースで続けられる方法を選ぶことを大切にしています。運動後に気分がすっきりしたり、生活習慣が整うことで前向きな気持ちになれたりすると、健康行動を続ける意欲が高まりやすいでしょう。
+
+一方で、忙しさやストレスが増えると健康行動が後回しになってしまうこともあります。完璧を目指すのではなく、自分に合った方法を無理なく続けることが、心と身体の健康につながります。
+
+<div class="section-header">
+    <span>💡 アドバイス</span>
+</div>
+心身をリラックスさせるために、ストレッチやヨガ、深呼吸、瞑想など、ゆったりとした運動を生活に取り入れてみましょう。また、公園や自然の多い場所を歩くなど、自然を感じながら身体を動かすことで、気分転換やストレスの軽減にもつながります。
+`;
+
+
+
+ }
+ if(type.includes("健康維持型")){
+
+description += `
+<div class="section-header">
+    <span>🧡 健康維持型　特徴</span>
+</div>
+あなたは、健康を維持し、将来も元気に過ごすことを大切にするタイプです。病気の予防や体力づくり、運動不足の解消など、長期的な健康を意識して健康行動を行う傾向があります。
+
+健康は毎日の積み重ねによってつくられるものと考え、継続することを大切にしています。そのため、特別なことをするよりも、自分に合った運動や食生活を無理なく続けることを重視するのが特徴です。
+
+一方で、健康維持が目的であるため、すぐに変化が見えにくいとモチベーションが下がってしまうこともあります。日々の小さな積み重ねが将来の健康につながることを意識しながら、自分のペースで健康習慣を続けていきましょう。
+
+<div class="section-header">
+    <span>💡 アドバイス</span>
+</div>
+健康行動を長く続けるためには、毎日の生活の中に運動を取り入れることが大切です。通勤・通学で一駅分歩いたり、階段を使ったりするなど、日常生活の中で身体を動かす機会を増やしてみましょう。無理なく続けられる習慣を作ることが、将来の健康につながります。
+
+`;
+
+
+
+recommend += `
+<h4>🧡健康維持型</h4>
+
+・🚶 ウォーキング（1日60分程度を目安に）
+・🏃 ジョギングやランニング（週60分程度を目安に）
+・💪 筋力トレーニング（週2～3日）
+・🧘 ストレッチや軽い体操
+`;
+
+}
+
+ 
+
+
+    document.getElementById("scores").innerHTML = `
+<div class="bar-title">
+💗 理想ボディ型　${beauty}点
+</div>
+<div class="bar-bg">
+  <div class="bar beauty" style="width:${beauty/42*100}%"></div>
+</div>
+
+<div class="bar-title">
+💙 憧れ・ライフスタイル型　${lifestyle}点
+</div>
+<div class="bar-bg">
+  <div class="bar lifestyle" style="width:${lifestyle/42*100}%"></div>
+</div>
+
+<div class="bar-title">
+💚メンタル安定型　${mental}点
+</div>
+<div class="bar-bg">
+  <div class="bar mental" style="width:${mental/42*100}%"></div>
+</div>
+
+<div class="bar-title">
+🧡 健康維持型　${health}点
+</div>
+<div class="bar-bg">
+  <div class="bar health" style="width:${health/42*100}%"></div>
+</div>
+
+<hr>
+
+<h3>あなたはこんなタイプ！</h3>
+
+${multiMessage}
+
+<div class="description">
+${description}
+</div>
+<br>
+<div class="section-header">
+    <span>🏃 おすすめの健康行動</span>
+</div>
+<div class="description">
+
+健康づくりのために、次のような運動を取り入れてみましょう。
+
+🚶 ウォーキング（1日60分程度を目安に）
+🏃 ジョギングやランニング（週60分程度を目安に）
+💪 筋力トレーニング（週2～3日）
+🧘 ストレッチや軽い体操
+
+</div>
+
+`;
+
+
+
+ </script>
+
+ <hr>
+
+<h3>アンケートのお願い</h3>
+
+<p>
+診断を体験していただきありがとうございました。<br>
+診断についてのアンケートを実施しています。<br>
+よろしければ、以下のボタンからご回答ください。
+</p>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSehYm_FTIjuU5bbrcNmvE7qMRI6fZXa0UrpAGtv8NEqxsDOwQ/viewform?usp=dialog" target="_blank">
+    アンケートに回答する
+</a>
+
+</body>
+</html>
